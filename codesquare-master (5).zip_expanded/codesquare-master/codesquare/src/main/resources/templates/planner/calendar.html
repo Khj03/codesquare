@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout/plannerLayout}"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<title>Calendar</title>
+	<!-- fullcalendar -->
+
+ 	<link th:href="@{/static/fullcalendar/fullcalendar.min.css}" rel="stylesheet">	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+	<script th:src="@{/static/fullcalendar/fullcalendar.min.js}"></script>
+	<script type='text/javascript' th:src='@{/static/fullcalendar/gcal.js}'></script>
+	<script th:src='@{/static/fullcalendar/locale/ko.js}'></script>
+	<script type="text/javascript" th:inline="javascript">
+	/*<![CDATA[*/
+
+		$(document).ready(function () {
+			// page is now ready, initialize the calendar...
+			$('#calendar').fullCalendar({
+				//-----테마 설정-----
+				theme: 'bootstrap4',
+				
+ 				/* 
+				googleCalendarApiKey: 'AIzaSyDLfWhH0ZLqE_NvLAdO-CNtCQHuCyyXm-I',	 */ 	 
+				
+				//----- 시간 표시 포맷 설정 -----
+				timeFormat:'a h:mm',					
+			
+				//----- 헤더 설정 -----
+				header: {
+					left: 'title',
+					center: 'list,listWeek,listMonth basicDay,basicWeek,Month prevYear,prev,next,nextYear',
+					right: 'prev,next today groupButton,todoButton'
+				},
+
+
+				//----- 커스텀 버튼 -----
+				customButtons: {
+					groupButton: {
+						text: '그룹그룹',
+						bootstrapGlyphicon: 'glyphicon-user',
+						click: function () {
+							//VIEW 체인지
+							$('#calendar').fullCalendar('changeView', 'agenda', {
+								start: '2019-01-19',
+								end: '2019-01-20'
+							});
+						}
+					},
+					todoButton: {
+						text: '투두',
+						click: function () {
+							alert('TODOLIST이라능!');
+						}
+					}
+				},
+
+				//-----버튼 텍스트 설정하는 부분 : locale 한글로 설정하면서 일단 필요없어짐-----
+				
+ 				buttonText: {
+					
+					listWeek:'일정(주)',
+					listMonth:'일정(월)'
+				}, 												
+				
+				//-----이벤트 기본 메세지 설정-----
+				noEventsMessage: '이벤트가 없습니다.',
+
+				//----- 하루에 표시되는 이벤트의 수 제한 -----
+				eventLimit:true,
+				
+				//----- eventLimit의 event -----
+				eventLimitClick: 'popover',				
+
+				//-----날짜 텍스트 부분 클릭 이벤트-----
+				navLinks: true,				
+		 		navLinkDayClick: function (weekStart, jsEvent) {
+					weekStart.format(); // weekStart is a moment
+					console.log('coords', jsEvent.pageX, jsEvent.pageY); // 클릭한 x,y좌표값 출력
+				}, 
+				
+				// -----일정이벤트를 클릭 이벤트-----
+				eventClick: function(calEvent, jsEvent, view) {
+
+				    alert('Event: ' + calEvent.source);
+				    alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+				    alert('View: ' + view.name);
+
+				    // change the border color just for fun
+				    $(this).css('border-color', 'red');
+				  },	
+				
+				/* ###  EVENT 추가  ###*/
+					eventSources:[
+/* 						{
+							googleCalendarId: 'ko.south_korea#holiday@group.v.calendar.google.com',
+							color:'#B22222'
+						}, 
+						
+								##세미나 이벤트 객체 지저분해서 임시로 지움
+						
+						*/				
+						{
+							events:   /*[[${study}]]*/,
+						    color: '#483D8B',     
+						    textColor: 'white'
+						}
+					],						
+					
+ 					
+				  eventRender: function(eventObj, $el) {
+					   $el.popover({
+			              title: eventObj.title,
+			              content: eventObj.description,
+			              trigger: 'hover',
+			              placement: 'top',
+			              container: 'body',
+			              html: true
+			            });
+			       } 				
+			});// end fullCalendar
+		});
+		/*]]>*/
+	</script>
+	<style>
+		#calendar {
+			max-width: 80%;
+ 	        margin-left: auto;
+	        margin-right: auto;		
+
+		}
+	</style>
+</head>
+
+<body>
+
+	<article class="content" layout:fragment="content">
+		<div id='calendar'></div>
+	</article>
+	      
+</body>
+
+</html>

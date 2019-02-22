@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<header class="main-header" th:fragment="headerFragment">
+<meta charset="UTF-8">
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="/"><img
+			th:src="@{/static/images/logo.png}" alt="noimg" /></a>
+
+		<div class="collapse navbar-collapse" id="navbarColor03">
+			<ul class="navbar-nav mr-auto">
+
+				<li class="nav-item"><a class="nav-link" href="#">�깉�냼�떇</a>
+					<ul class="csnav-dropdown">
+						<li><a class="nav-link" href="#">怨듭��궗�빆</a>
+						<li><a class="nav-link" href="#">�씠踰ㅽ듃</a>
+						<li><a class="nav-link" href="#">IT News</a>
+					</ul></li>
+				<li class="nav-item"><a class="nav-link" href="#">�뒪�꽣�뵒</a>
+					<ul class="csnav-dropdown">
+						<li><a class="nav-link" href="#">�뒪�꽣�뵒紐⑥쭛</a>
+						<li><a class="nav-link" href="#">�뒪�꽣�뵒�썑湲�</a>
+					</ul></li>
+				<li class="nav-item"><a class="nav-link" href="#">�꽭誘몃굹</a>
+					<ul class="csnav-dropdown">
+						<li><a class="nav-link" href="#">�꽭誘몃굹紐⑥쭛</a>
+						<li><a class="nav-link" href="#">�꽭誘몃굹�썑湲�</a>
+					</ul></li>
+				<li class="nav-item"><a class="nav-link" href="#">而ㅻ�ㅻ땲�떚</a>
+					<ul class="csnav-dropdown">
+						<li><a class="nav-link" href="#">�옄�쑀寃뚯떆�뙋</a>
+						<li><a class="nav-link" href="#">吏덈Ц�엳�뼱�슂</a>
+						<li><a class="nav-link" href="#">IT Forum</a>
+					</ul></li>
+				<li class="nav-item"><a class="nav-link" href="/learn">�봽濡쒓렇�옒諛띻컯�쓽</a>
+				</li>
+				<li class="nav-item"><a class="nav-link" href="#">肄붾뱶由щ럭</a>
+					<ul class="csnav-dropdown">
+						<li><a class="nav-link" href="#">由щ럭�떊泥��븯湲�</a>
+						<li><a class="nav-link" href="#">肄붾뱶由щ럭�븯湲�</a>
+					</ul></li>
+				<li class="nav-item"><a class="nav-link" href="#">而ㅻ━�걯�읆</a>
+					<ul class="csnav-dropdown">
+						<li><a class="nav-link" href="#">異붿쿇而ㅻ━�걯�읆</a>
+						<li><a class="nav-link" href="#">�쑀��而ㅻ━�걯�읆</a>
+					</ul></li>
+
+				<!-- �븣由� -->
+				<div class="noti-dropdown">
+					<a onclick="myFunction()" id="noti-btn" class="noti-btn"> <img
+						width="25" height="25" class="noti-btn"
+						src="https://previews.123rf.com/images/hanaschwarz/hanaschwarz1211/hanaschwarz121100002/16260237-%ED%9D%B0%EC%83%89-%EB%B0%B0%EA%B2%BD%EC%97%90-%EA%B3%A0%EB%A6%BD-%EB%B9%A8%EA%B0%84-%EB%A6%AC%EB%B3%B8%EA%B3%BC-%EC%A2%85.jpg"
+						alt="Course noti">
+					</a>
+
+					<div class="noti-count">3</div>
+
+
+
+					<div id="myDropdown" class="dropdown-content">
+						<div class="header">
+							<span> �븣由�</span>
+							<button id="read-btn">�씫�� �븣由� �궘�젣</button>
+							<button id="all-btn">紐⑤몢�궘�젣 l</button>
+						</div>
+
+						<ul id="noti-list">
+							<li class="notification"><a href="/"> <img
+									src="https://previews.123rf.com/images/hanaschwarz/hanaschwarz1211/hanaschwarz121100002/16260237-%ED%9D%B0%EC%83%89-%EB%B0%B0%EA%B2%BD%EC%97%90-%EA%B3%A0%EB%A6%BD-%EB%B9%A8%EA%B0%84-%EB%A6%AC%EB%B3%B8%EA%B3%BC-%EC%A2%85.jpg"
+									width="30" height="30" class="noti-sender-photo" />
+									<div class="noti-main">
+
+										<div style="clear: both;"></div>
+										<div class="noti-title-only">
+											<span class="remarkable-viewer"></span>
+											<p>
+												<strong>�뒪�꽣�뵒</strong>李몄뿬以묒씤 媛뺣궓�뒪�꽣�뵒 �씪�젙 D-3�엯�땲�떎.
+											</p>
+											<div class="noti-date">2019.01.27 17:08</div>
+										</div>
+									</div>
+							</a></li>
+
+							<li class="notification" id="notification-id895558"><a
+								href="/"> <img
+									src="https://previews.123rf.com/images/hanaschwarz/hanaschwarz1211/hanaschwarz121100002/16260237-%ED%9D%B0%EC%83%89-%EB%B0%B0%EA%B2%BD%EC%97%90-%EA%B3%A0%EB%A6%BD-%EB%B9%A8%EA%B0%84-%EB%A6%AC%EB%B3%B8%EA%B3%BC-%EC%A2%85.jpg"
+									width="30" height="30" class="noti-sender-photo">
+									<div class="noti-main">
+
+										<div style="clear: both;"></div>
+										<div class="noti-title-only">
+											<span class="remarkable-viewer"></span>
+											<p>
+												<strong>�꽭誘몃굹</strong>�떊泥��븯�떊 �꽌珥덉꽭誘몃굹 �떊泥��씠 <strong>�닔�씫</strong>�릺�뿀�뒿�땲�떎.
+											</p>
+											<div class="noti-date">2019.01.25 17:08</div>
+										</div>
+									</div>
+							</a></li>
+
+
+							<li class="notification" id="notification-id895558"><a
+								href="/"> <img
+									src="https://previews.123rf.com/images/hanaschwarz/hanaschwarz1211/hanaschwarz121100002/16260237-%ED%9D%B0%EC%83%89-%EB%B0%B0%EA%B2%BD%EC%97%90-%EA%B3%A0%EB%A6%BD-%EB%B9%A8%EA%B0%84-%EB%A6%AC%EB%B3%B8%EA%B3%BC-%EC%A2%85.jpg"
+									width="30" height="30" class="noti-sender-photo" />
+									<div class="noti-main">
+										<div style="clear: both;"></div>
+										<div class="noti-title-only">
+											<span class="remarkable-viewer"></span>
+											<p>
+												<strong style="color: skyblue;">�뒪�꽣�뵒</strong>�쉶�썝�떂�쓽 寃뚯떆�뙋�뿉 �뙎湲��씠
+												�떖�졇�뒿�땲�떎.
+											</p>
+											<div class="noti-date">2019.01.23 17:08</div>
+										</div>
+									</div>
+							</a></li>
+
+
+							<li class="notification" id="notification-id895558"><a
+								href="/"> <img
+									src="https://previews.123rf.com/images/hanaschwarz/hanaschwarz1211/hanaschwarz121100002/16260237-%ED%9D%B0%EC%83%89-%EB%B0%B0%EA%B2%BD%EC%97%90-%EA%B3%A0%EB%A6%BD-%EB%B9%A8%EA%B0%84-%EB%A6%AC%EB%B3%B8%EA%B3%BC-%EC%A2%85.jpg"
+									width="30" height="30" class="noti-sender-photo" />
+									<div class="noti-main">
+										<div style="clear: both;"></div>
+										<div class="noti-title-only">
+											<span class="remarkable-viewer"></span>
+											<p>
+												<strong style="color: skyblue;">肄붾뱶�뒪�섏뼱</strong>�쉶�썝�떂猿� �깉濡쒖슫 �냼�떇�씠
+												�룄李⑺븯���뒿�땲�떎.
+											</p>
+											<div class="noti-date">2019.01.23 17:08</div>
+										</div>
+									</div>
+							</a></li>
+
+							<li class="notification" id="notification-id895558"><a
+								href="/"> <img
+									src="https://previews.123rf.com/images/hanaschwarz/hanaschwarz1211/hanaschwarz121100002/16260237-%ED%9D%B0%EC%83%89-%EB%B0%B0%EA%B2%BD%EC%97%90-%EA%B3%A0%EB%A6%BD-%EB%B9%A8%EA%B0%84-%EB%A6%AC%EB%B3%B8%EA%B3%BC-%EC%A2%85.jpg"
+									width="30" height="30" class="noti-sender-photo" />
+									<div class="noti-main">
+										<div style="clear: both;"></div>
+										<div class="noti-title-only">
+											<span class="remarkable-viewer"></span>
+											<p>
+												<strong style="color: skyblue;">肄붾뱶�뒪�섏뼱</strong> 媛뺥씗�젙�떂�쓽 媛��엯�쓣
+												異뺥븯�뱶由쎈땲�떎.
+											</p>
+											<div class="noti-date">2019.01.23 17:08</div>
+										</div>
+									</div>
+							</a></li>
+						</ul>
+					</div>
+				</div>
+
+
+
+
+			</ul>
+			<div sec:authorize="isAuthenticated()">
+				<ul>
+					<li><span sec:authentication="name"></span> �떂 �븞�뀞�븯�꽭�슂!</li>
+					<li><a th:href="@{/member/myPage}">留덉씠�럹�씠吏�</a></li>
+					<li><a th:href="@{/logout}">濡쒓렇�븘�썐</a></li>
+				</ul>
+			</div>
+
+
+			<div sec:authorize="isAnonymous()">
+				<ul>
+					<li><a th:href="@{/member/login}">濡쒓렇�씤</a></li>
+					<li><a th:href="@{/member/signUp}">�쉶�썝媛��엯</a></li>
+				</ul>
+			</div>
+
+		</div>
+	</nav>
+</header>
+</html>
